@@ -4,7 +4,7 @@ import { AuthContext } from '../Providers/AuthProvider';
 
 const Login = () => {
 
-    const {signin} = useContext(AuthContext)
+    const {signin , loginGithub } = useContext(AuthContext)
 
 
     const handleLogin = event =>{
@@ -15,10 +15,21 @@ const Login = () => {
         signin(email, pass)
         .then((result)=>{
             console.log(result.user)
+            event.target.reset()
         })
         .catch((err)=>{
             console.log(err.message)
         })
+    }
+
+    const handleGithobLogin = ()=>{
+      loginGithub()
+      .then((result)=>{
+        console.log(result.user)
+      })
+      .catch((err)=>{
+        console.log(err.message)
+      })
     }
 
     return (
@@ -50,6 +61,9 @@ const Login = () => {
               </div>
             </form>
             <Link to='/register'><button className="btn btn-link">Register</button></Link>
+          <div className='pb-2 pl-2'>
+          <button onClick={handleGithobLogin} className='btn btn-xs'>Login with Github</button>
+          </div>
           </div>
         </div>
       </div>

@@ -16,6 +16,7 @@ const handleRegister = (event) =>{
     createUser(email, pass)
     .then((result)=>{
         console.log(result.user);
+        event.target.reset()
     })
     .catch((err)=>{
         console.log(err.message)

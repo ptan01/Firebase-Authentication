@@ -7,6 +7,9 @@ import Home from './Routes/Home'
 import Login from './Routes/Login'
 import Register from './Routes/Register'
 import AuthProvider from './Providers/AuthProvider'
+import PrivetRouter from './Routes/PrivetRouter/PrivetRouter'
+import Order from './Routes/Order'
+import UserProfile from './Routes/UserProfile'
 
 
 const router = createBrowserRouter([
@@ -25,6 +28,14 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/order',
+        element: <PrivetRouter><Order></Order></PrivetRouter>
+      },
+      {
+        path : '/profile',
+        element: <PrivetRouter><UserProfile></UserProfile></PrivetRouter>
       }
     ]
   }
